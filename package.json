@@ -1,0 +1,31 @@
+{
+  "name": "event-booking",
+  "version": "1.0.0",
+  "description": "Event Booking System",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanielWatife/event-booking.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathanielWatife/event-booking/issues"
+  },
+  "homepage": "https://github.com/NathanielWatife/event-booking#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "jest": "^29.7.0",
+    "sequelize": "^6.37.5",
+    "sqlite3": "^5.1.7",
+    "supertest": "^7.0.0"
+  }
+}
