@@ -1,13 +1,13 @@
 const eventModel = require('../models/eventModel');
-const db = require('../models/db');
+const db = require('../db/db');
 
 class EventService {
     async initializeEvent(eventId, totalTickets) {
         eventModel.initializeEvent(eventId, totalTickets);
     }
 
-    async bookedTickets(eventId, userId) {
-        const result = eventModel.bookedTickets(eventId, userId);
+    async bookTicket(eventId, userId) { // Fixed: `bookedTicket` -> `bookTicket`
+        const result = eventModel.bookTicket(eventId, userId); // Fixed: `bookedTicket` -> `bookTicket`
         if (result.status === 'booked') {
             db.run('INSERT INTO orders (eventId, userId, status) VALUES (?, ?, ?)', [eventId, userId, 'booked']);
         }
@@ -19,7 +19,7 @@ class EventService {
         if (result.status === 'cancelled') {
             db.run('UPDATE orders SET status = ? WHERE eventId = ? AND userId = ?', ['cancelled', eventId, userId]);
         } else if (result.status === 'reassigned') {
-            db.riun('INSERT INTO orders (eventId, userId, status) VALUES (?, ?, ?)', [eventId, result.userId, 'booked']);
+            db.run('INSERT INTO orders (eventId, userId, status) VALUES (?, ?, ?)', [eventId, result.userId, 'booked']);
         }
         return result;
     }
@@ -29,4 +29,4 @@ class EventService {
     }
 }
 
-module.exports = EventService();
+module.exports = new EventService();

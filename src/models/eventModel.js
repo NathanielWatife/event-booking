@@ -1,9 +1,6 @@
-const { returnStatement } = require("@babel/types");
-const { eventNames, availableMemory } = require("process");
-
 class EventModel {
     constructor() {
-        this.events - new Map();
+        this.events = new Map();
     }
     initializeEvent(eventId, totalTickets) {
         this.events.set(eventId, {
@@ -13,11 +10,11 @@ class EventModel {
         });
     }
 
-    bookedTickets(eventId, userId) {
+    bookTicket(eventId, userId) {
         const event = this.events.get(eventId);
         if (!event) throw new Error('Event not found');
 
-        if (event.bookedTickets < events.totalTickets) {
+        if (event.bookedTickets < event.totalTickets) { // Fixed: `events` -> `event`
             event.bookedTickets++;
             return { status: 'booked', userId };
         } else {
@@ -27,7 +24,7 @@ class EventModel {
     }
 
     cancelTicket(eventId, userId) {
-        const evnt = this.events.get(eventId);
+        const event = this.events.get(eventId);
         if (!event) throw new Error('Event not found');
 
         if (event.bookedTickets > 0) {
@@ -42,14 +39,14 @@ class EventModel {
     }
 
     getEventStatus(eventId) {
-        const event = this.event.get(eventId);
+        const event = this.events.get(eventId);
         if (!event) throw new Error('Event not found');
 
         return {
-            availableTicket: event.totalTickets - event.bookedTickets,
-            waitingList: event.waitingList.length,
+            availableTickets: event.totalTickets - event.bookedTickets, // Fixed: `availableTicket` -> `availableTickets`
+            waitingListCount: event.waitingList.length, // Fixed: `waitingList` -> `waitingListCount`
         };
     }
 }
 
-module.exports = EventModel();
+module.exports = new EventModel();

@@ -1,5 +1,4 @@
 const eventService = require('../services/eventService');
-const EventService = require('../services/eventService');
 
 class EventController {
     async initializeEvent(req, res) {
@@ -8,16 +7,16 @@ class EventController {
         res.status(201).json({ message: 'Event initialized' });
     }
 
-    async booktTicket(req, res) {
+    async bookTicket(req, res) {
         const { eventId, userId } = req.body;
-        const result = await eventService.booktTicket(eventId, userId);
+        const result = await eventService.bookTicket(eventId, userId);
         res.status(200).json(result);
     }
 
     async cancelTicket(req, res) {
         const { eventId, userId } = req.body;
         const result = await eventService.cancelTicket(eventId, userId);
-        res.status(200).json(status);
+        res.status(200).json(result);
     }
 
     async getEventStatus(req, res) {
