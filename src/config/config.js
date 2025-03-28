@@ -8,6 +8,6 @@ module.exports = {
     },
     database: {
         dialect: process.env.DB_DIALECT || 'sqlite',
-        Storage: process.env.DB_STORAGE || path.join(__dirname, '../../database.sqlite'),
+        storage: process.env.DB_STORAGE || path.join(__dirname, '../../database.sqlite'),
     }
 };

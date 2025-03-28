@@ -8,5 +8,4 @@ const sequelize = new Sequelize({
     logging: config.app.env === 'development' ? console.log : false,
 });
 
-
 module.exports = sequelize;
