@@ -1,13 +1,13 @@
 {
   "name": "event-booking",
   "version": "1.0.0",
-  "description": "Event Booking System",
+  "description": "This is a Node.js application for managing event ticket bookings. It provides RESTful APIs to initialize events, book tickets, cancel bookings, and check event status.",
   "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
   "scripts": {
-    "test": "jest"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "jest --coverage",
+    "migrate": "sequelize db:migrate"
   },
   "repository": {
     "type": "git",
@@ -21,11 +21,18 @@
   },
   "homepage": "https://github.com/NathanielWatife/event-booking#readme",
   "dependencies": {
-    "body-parser": "^1.20.3",
+    "async-lock": "^1.4.1",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "sequelize": "^6.37.6",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
     "jest": "^29.7.0",
-    "sequelize": "^6.37.5",
-    "sqlite3": "^5.1.7",
-    "supertest": "^7.0.0"
+    "nodemon": "^3.1.9",
+    "supertest": "^7.1.0"
   }
 }

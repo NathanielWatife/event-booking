@@ -1,0 +1,13 @@
+{
+  "debug.focusWindowOnBreak": false,
+  "debug.focusEditorOnBreak": false,
+  "debug.enableStatusBarColor": false,
+  "java.debug.settings.jdwp.async": "off",
+  "java.debug.settings.enableRunDebugCodeLens": false,
+  "debug.javascript.automaticallyTunnelRemoteServer": false,
+  "debug.javascript.codelens.npmScripts": "never",
+  "debugpy.debugJustMyCode": false,
+  "debug.javascript.resourceRequestOptions": {
+    
+  }
+}
